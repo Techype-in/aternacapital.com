@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()"/>
+<title>Products — Aterna Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--forest:#fafcff;--deep:#eef4fb;--green:#d0e4f5;--mid:#2563a8;--sage:#4a8fd4;--mist:#b8d0e8;--gold:#c4902a;--gold-lt:#e8c068;--white:#fafaf8;--text-dark:#0d1b2a;--text-mid:#2d3f52;--text-sub:#4a5f75;--serif:'Cormorant Garamond',Georgia,serif;--sans:'Outfit',system-ui,sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;}body{font-family:var(--sans);background:var(--forest);color:#0d1b2a;overflow-x:hidden;cursor:none;}
+a{color:inherit;text-decoration:none;}button{cursor:none;font-family:var(--sans);border:none;background:none;}
+#cursor-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+#cursor-ring{width:36px;height:36px;border:1px solid rgba(196,144,42,.4);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .4s,height .4s,border-color .3s;}
+body.hovering #cursor-ring{width:56px;height:56px;border-color:rgba(196,144,42,.8);}
+body::before{content:'';position:fixed;inset:0;opacity:.03;pointer-events:none;z-index:1;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 3rem;height:80px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(37,99,168,.12);}
+.nav-logo{display:flex;align-items:center;gap:12px;}
+.nav-logo-name{font-family:var(--serif);font-size:1.5rem;font-weight:500;color:#0d1b2a;}
+.nav-logo-sub{font-size:.6rem;font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:#2563a8;margin-top:4px;}
+.nav-links{display:flex;align-items:center;gap:2.5rem;}
+.nav-link{font-size:.78rem;font-weight:300;letter-spacing:.08em;color:#3a5068;transition:color .3s;}
+.nav-link:hover,.nav-link.active{color:#0d1b2a;}
+.nav-cta-btn{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.65rem 1.5rem;background:var(--gold);color:var(--forest);border-radius:2px;transition:all .3s;}
+.nav-cta-btn:hover{background:var(--gold-lt);transform:translateY(-1px);}
+.page-hero{min-height:60vh;display:flex;flex-direction:column;justify-content:flex-end;padding:9rem 3rem 5rem;position:relative;z-index:2;border-bottom:1px solid rgba(37,99,168,.12);}
+.eyebrow{font-size:.65rem;font-weight:300;letter-spacing:.3em;text-transform:uppercase;color:#2563a8;display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;}
+.eyebrow::before{content:'';width:32px;height:1px;background:var(--sage);}
+.page-title{font-family:var(--serif);font-size:clamp(3rem,6vw,6rem);font-weight:300;line-height:1;color:var(--text-dark);}
+.page-title em{font-style:italic;color:var(--gold-lt);}
+.page-sub{font-size:.95rem;font-weight:300;color:#2d3f52;max-width:500px;line-height:1.8;margin-top:1.5rem;}
+.product-full{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid rgba(37,99,168,.12);}
+.product-full.alt .pf-left{order:2;}
+.product-full.alt .pf-right{order:1;}
+.pf-left{padding:6rem 4rem;display:flex;flex-direction:column;justify-content:center;background:var(--deep);}
+.pf-right{padding:6rem 4rem;display:flex;flex-direction:column;justify-content:center;background:#ffffff;border-left:1px solid rgba(37,99,168,.1);}
+.prod-num{font-family:var(--serif);font-size:5rem;font-weight:300;color:rgba(37,99,168,.1);line-height:1;margin-bottom:-0.5rem;}
+.prod-tag{font-size:.62rem;font-weight:300;letter-spacing:.25em;text-transform:uppercase;color:#1b3e6f;margin-bottom:1.25rem;}
+.prod-title{font-family:var(--serif);font-size:clamp(1.8rem,3vw,2.8rem);font-weight:300;color:#0d1b2a;line-height:1.15;margin-bottom:1.25rem;}
+.prod-body{font-size:.88rem;font-weight:300;color:#2d3f52;line-height:1.85;}
+.prod-cta{display:inline-flex;align-items:center;gap:.75rem;margin-top:2.5rem;font-size:.75rem;font-weight:400;letter-spacing:.12em;text-transform:uppercase;padding:.85rem 2rem;background:#eef4fb;border:1px solid rgba(37,99,168,.25);color:#1b3e6f;border-radius:2px;transition:all .3s;width:fit-content;}
+.prod-cta:hover{background:var(--gold);color:#ffffff;}
+.specs{display:flex;flex-direction:column;}
+.spec-row{display:flex;gap:1.5rem;padding:1.2rem 0;border-bottom:1px solid rgba(37,99,168,.15);}
+.spec-label{font-size:.65rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:#4a5f75;min-width:110px;padding-top:2px;flex-shrink:0;}
+.spec-val{font-size:.87rem;font-weight:300;color:#2d3f52;line-height:1.5;}
+.use-list{margin-top:2.5rem;}
+.use-lbl{font-size:.62rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:#4a5f75;margin-bottom:1rem;}
+.use-item{display:flex;gap:.75rem;align-items:flex-start;padding:.6rem 0;border-bottom:1px solid rgba(37,99,168,.1);}
+.use-item::before{content:'→';color:var(--gold);flex-shrink:0;font-size:.85rem;margin-top:1px;}
+.use-item span{font-size:.83rem;font-weight:300;color:#2d3f52;}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1);}
+.reveal.in{opacity:1;transform:none;}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+.cta-band{padding:8rem 3rem;text-align:center;background:#eef4fb;border-top:1px solid rgba(37,99,168,.12);position:relative;z-index:2;}
+.cta-title{font-family:var(--serif);font-size:clamp(2.5rem,5vw,4.5rem);font-weight:300;color:#0d1b2a;line-height:1.05;}
+.cta-title em{font-style:italic;color:var(--gold-lt);}
+.cta-sub{font-size:.9rem;font-weight:300;color:#2d3f52;max-width:440px;margin:1.5rem auto 3rem;line-height:1.8;}
+.btn-gold{display:inline-flex;align-items:center;gap:.75rem;font-size:.78rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2.5rem;background:var(--gold);color:var(--forest);border-radius:2px;transition:all .3s;}
+.btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px);}
+footer{background:rgba(234,241,249,.95);padding:3rem 3rem 2rem;border-top:1px solid rgba(37,99,168,.12);position:relative;z-index:2;}
+.ftr-row{display:flex;justify-content:space-between;align-items:center;padding-bottom:2rem;flex-wrap:wrap;gap:1.5rem;}
+.ftr-links{display:flex;gap:2rem;flex-wrap:wrap;}
+.ftr-link{font-size:.78rem;font-weight:300;color:#2d3f52;transition:color .2s;}
+.ftr-link:hover{color:#0d1b2a;}
+.ftr-legal{font-size:.67rem;font-weight:300;color:#4a5f75;line-height:1.7;border-top:1px solid rgba(37,99,168,.12);padding-top:2rem;}
+@media(max-width:900px){.product-full,.product-full.alt{grid-template-columns:1fr;}.product-full.alt .pf-left,.product-full.alt .pf-right{order:unset;}.pf-left,.pf-right{padding:4rem 1.5rem;}.page-hero{padding:7rem 1.5rem 3rem;}.nav-links{display:none;}.cta-band{padding:5rem 1.5rem;}footer{padding:2.5rem 1.5rem;}}
+.pr-motion{margin:0 auto 2rem;max-width:280px;height:160px;display:block;color:#2563a8;}.pr-motion .m-svg{max-height:160px;}
+/* Mobile nav fix */
+#navToggle{display:none;background:none;border:none;cursor:none;padding:6px;}
+@media(max-width:900px){
+  #navToggle{display:flex;align-items:center;justify-content:center;}
+  .nav-links{display:none;}
+  .nav-links.open{display:flex;flex-direction:column;align-items:flex-start;position:fixed;top:80px;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);padding:1.75rem 1.5rem;gap:1.25rem;border-bottom:1px solid rgba(37,99,168,.12);box-shadow:0 8px 24px rgba(13,27,42,.06);}
+  .nav-links.open .nav-cta-btn{margin-top:.5rem;}
+}
+</style>
+</head>
+<body>
+<div id="cursor-dot"></div><div id="cursor-ring"></div>
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <svg width="34" height="34" viewBox="0 0 60 60" fill="none"><rect x="8" y="8" width="44" height="44" rx="4" transform="rotate(45 30 30)" fill="#1b3e6f" stroke="#2563a8" stroke-width="1.2"/><polygon points="30,10 52,30 30,38" fill="#0a1628" opacity="0.55"/><rect x="18" y="22" width="5" height="20" rx="1" fill="#b8cfe8"/><rect x="27.5" y="18" width="5" height="24" rx="1" fill="#4a8fd4"/><rect x="37" y="22" width="5" height="20" rx="1" fill="#b8cfe8"/><rect x="14" y="19" width="32" height="2.5" rx="1" fill="#b8cfe8"/><rect x="14" y="42" width="32" height="2.5" rx="1" fill="#b8cfe8"/><rect x="27.5" y="15" width="5" height="4" rx="1" fill="#c4902a"/></svg>
+    <div><div class="nav-logo-name" style="color:#0d1b2a;">Aterna</div><div class="nav-logo-sub">Capital</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="products.html" class="nav-link active">Products</a>
+    <a href="sme.html" class="nav-link">For SMEs</a>
+    <a href="corporates.html" class="nav-link">Corporates</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="apply.html" class="nav-cta-btn">Apply</a>
+  </div>
+  <button id="navToggle" aria-label="Toggle menu"><svg width="22" height="14" viewBox="0 0 22 14" fill="none"><line x1="0" y1="1" x2="22" y2="1" stroke="#0d1b2a" stroke-width="1.5" id="hb1"/><line x1="0" y1="7" x2="22" y2="7" stroke="#0d1b2a" stroke-width="1.5" id="hb2"/><line x1="0" y1="13" x2="22" y2="13" stroke="#0d1b2a" stroke-width="1.5" id="hb3"/></svg></button>
+</nav>
+<section class="page-hero">
+  <div class="eyebrow reveal">Credit solutions</div>
+  <h1 class="page-title reveal d1">Five products.<br><em>One philosophy.</em></h1>
+  <p class="page-sub reveal d2">Every credit product at Aterna is structured around your business — your cash flow, your collateral, your growth horizon. Not a template.</p>
+</section>
+<div class="product-full" id="term-loans">
+  <div class="pf-left"><div class="prod-num reveal">01</div><div class="prod-tag reveal">Term Loans</div><h2 class="prod-title reveal d1">Financing for<br>the long horizon</h2><p class="prod-body reveal d2">Fixed-tenure loans for capital expenditure, expansion, and multi-year projects. Repayment structured around your capacity — not a standard EMI schedule.</p><a href="apply.html?product=term-loan" class="prod-cta reveal d3">Apply for term loan →</a></div>
+  <div class="pf-right"><div class="pr-motion" data-motion="term-loan"></div><div class="specs reveal"><div class="spec-row"><span class="spec-label">Ticket size</span><span class="spec-val">₹1Cr – ₹100Cr+</span></div><div class="spec-row"><span class="spec-label">Tenure</span><span class="spec-val">1 year – 7 years</span></div><div class="spec-row"><span class="spec-label">Repayment</span><span class="spec-val">Monthly / Quarterly / Bullet — structured to your cash flow</span></div><div class="spec-row"><span class="spec-label">Collateral</span><span class="spec-val">Business assets, property, or hybrid structures</span></div><div class="spec-row"><span class="spec-label">Eligibility</span><span class="spec-val">2+ years operations, audited financials, clear growth trajectory</span></div></div><div class="use-list reveal d2"><div class="use-lbl">Use cases</div><div class="use-item"><span>Capital expenditure — machinery, equipment, plant</span></div><div class="use-item"><span>New facility setup or geographic expansion</span></div><div class="use-item"><span>Business acquisition financing</span></div><div class="use-item"><span>Long-gestation project funding</span></div></div></div>
+</div>
+<div class="product-full alt" id="working-capital">
+  <div class="pf-left"><div class="prod-num reveal">02</div><div class="prod-tag reveal">Working Capital</div><h2 class="prod-title reveal d1">Liquidity that<br>moves with you</h2><p class="prod-body reveal d2">A revolving credit line always available when you need it. Draw, repay, redraw — aligned to your procurement and collection cycle.</p><a href="apply.html?product=working-capital" class="prod-cta reveal d3">Apply for working capital →</a></div>
+  <div class="pf-right"><div class="pr-motion" data-motion="working-capital"></div><div class="specs reveal"><div class="spec-row"><span class="spec-label">Credit limit</span><span class="spec-val">₹50L – ₹50Cr, reviewed annually</span></div><div class="spec-row"><span class="spec-label">Structure</span><span class="spec-val">Revolving — draw, repay, redraw within sanctioned limit</span></div><div class="spec-row"><span class="spec-label">Interest</span><span class="spec-val">Charged only on drawn amount, not the full limit</span></div><div class="spec-row"><span class="spec-label">Tenure</span><span class="spec-val">12-month facility, renewable on review</span></div></div><div class="use-list reveal d2"><div class="use-lbl">Use cases</div><div class="use-item"><span>Inventory procurement before peak season</span></div><div class="use-item"><span>Bridging delivery to collection gaps</span></div><div class="use-item"><span>Vendor payments ahead of customer receipts</span></div></div></div>
+</div>
+<div class="product-full" id="invoice-discounting">
+  <div class="pf-left"><div class="prod-num reveal">03</div><div class="prod-tag reveal">Invoice Discounting</div><h2 class="prod-title reveal d1">Your receivables,<br>unlocked today</h2><p class="prod-body reveal d2">Stop waiting 60–90 days for customers to pay. Convert outstanding invoices into immediate working capital without diluting equity or taking on long-term debt.</p><a href="apply.html?product=invoice-discounting" class="prod-cta reveal d3">Apply for invoices →</a></div>
+  <div class="pf-right"><div class="pr-motion" data-motion="invoice-discounting"></div><div class="specs reveal"><div class="spec-row"><span class="spec-label">Advance rate</span><span class="spec-val">Up to 90% of invoice value, upfront</span></div><div class="spec-row"><span class="spec-label">Tenor</span><span class="spec-val">30–120 days, matching your payment terms</span></div><div class="spec-row"><span class="spec-label">Eligibility</span><span class="spec-val">Invoices on creditworthy counterparties — corporate, govt, rated entities</span></div><div class="spec-row"><span class="spec-label">Confidential</span><span class="spec-val">Yes — your customer relationship stays undisturbed</span></div></div><div class="use-list reveal d2"><div class="use-lbl">Use cases</div><div class="use-item"><span>Vendors to large corporates / PSUs with long payment cycles</span></div><div class="use-item"><span>Exporters managing payment lag from overseas buyers</span></div><div class="use-item"><span>Service firms with milestone-based billing</span></div></div></div>
+</div>
+<div class="product-full alt" id="structured-credit">
+  <div class="pf-left"><div class="prod-num reveal">04</div><div class="prod-tag reveal">Structured Credit</div><h2 class="prod-title reveal d1">Bespoke financing<br>for complexity</h2><p class="prod-body reveal d2">When standard products don't fit, we build the structure from scratch. Hybrid instruments, mezzanine financing, and custom deal architectures for complex capital requirements.</p><a href="apply.html?product=structured-credit" class="prod-cta reveal d3">Apply for structured deal →</a></div>
+  <div class="pf-right"><div class="pr-motion" data-motion="structured-credit"></div><div class="specs reveal"><div class="spec-row"><span class="spec-label">Ticket size</span><span class="spec-val">₹25Cr and above, no upper cap</span></div><div class="spec-row"><span class="spec-label">Instruments</span><span class="spec-val">Senior secured, mezzanine, subordinated debt, hybrid</span></div><div class="spec-row"><span class="spec-label">Collateral</span><span class="spec-val">Highly flexible — designed deal-by-deal</span></div><div class="spec-row"><span class="spec-label">Process</span><span class="spec-val">Begins with a confidential discussion — no standard application</span></div></div><div class="use-list reveal d2"><div class="use-lbl">Use cases</div><div class="use-item"><span>Promoter buyouts and management buy-ins</span></div><div class="use-item"><span>Pre-IPO bridge financing</span></div><div class="use-item"><span>Acquisition financing for unlisted companies</span></div></div></div>
+</div>
+<div class="product-full" id="co-lending">
+  <div class="pf-left"><div class="prod-num reveal">05</div><div class="prod-tag reveal">Co-lending</div><h2 class="prod-title reveal d1">Partnering to expand<br>credit access</h2><p class="prod-body reveal d2">We co-originate with banks under the RBI co-lending framework — combining our underwriting expertise with bank capital to bring better credit to more borrowers at blended rates.</p><a href="apply.html?product=co-lending" class="prod-cta reveal d3">Apply for co-lending →</a></div>
+  <div class="pf-right"><div class="pr-motion" data-motion="co-lending"></div><div class="specs reveal"><div class="spec-row"><span class="spec-label">Model</span><span class="spec-val">RBI co-lending framework — NBFC originates, bank co-funds</span></div><div class="spec-row"><span class="spec-label">For borrowers</span><span class="spec-val">Blended interest rates lower than standalone NBFC lending</span></div><div class="spec-row"><span class="spec-label">For banks</span><span class="spec-val">PSL compliance, access to Aterna's underwriting pipeline</span></div><div class="spec-row"><span class="spec-label">Sectors</span><span class="spec-val">MSME, agriculture supply chain, manufacturing, services</span></div></div><div class="use-list reveal d2"><div class="use-lbl">Who benefits</div><div class="use-item"><span>SMEs in semi-urban and Tier 2/3 markets with limited bank access</span></div><div class="use-item"><span>Banks seeking NBFC partnership under RBI guidelines</span></div><div class="use-item"><span>Borrowers seeking better rates through blended funding</span></div></div></div>
+</div>
+<div class="cta-band"><div class="reveal"><p style="font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:#2563a8;margin-bottom:1.5rem;">Not sure which fits?</p><h2 class="cta-title">Let's figure it<br><em>out together.</em></h2><p class="cta-sub">Share your situation and we'll tell you honestly which structure makes the most sense for your business.</p><a href="apply.html" class="btn-gold">Apply now →</a></div></div>
+<footer><div class="ftr-row"><a href="../index.html" class="nav-logo"><svg width="28" height="28" viewBox="0 0 60 60" fill="none"><rect x="8" y="8" width="44" height="44" rx="4" transform="rotate(45 30 30)" fill="#1b3e6f" stroke="#2563a8" stroke-width="1.2"/><polygon points="30,10 52,30 30,38" fill="#0a1628" opacity="0.55"/><rect x="18" y="22" width="5" height="20" rx="1" fill="#b8cfe8"/><rect x="27.5" y="18" width="5" height="24" rx="1" fill="#4a8fd4"/><rect x="37" y="22" width="5" height="20" rx="1" fill="#b8cfe8"/><rect x="14" y="19" width="32" height="2.5" rx="1" fill="#b8cfe8"/><rect x="14" y="42" width="32" height="2.5" rx="1" fill="#b8cfe8"/><rect x="27.5" y="15" width="5" height="4" rx="1" fill="#c4902a"/></svg><div><div class="nav-logo-name" style="color:#0d1b2a;">Aterna</div><div class="nav-logo-sub">Capital</div></div></a><div class="ftr-links"><a href="#term-loans" class="ftr-link">Term Loans</a><a href="#working-capital" class="ftr-link">Working Capital</a><a href="#invoice-discounting" class="ftr-link">Invoice Discounting</a><a href="#structured-credit" class="ftr-link">Structured Credit</a><a href="#co-lending" class="ftr-link">Co-lending</a><a href="about.html" class="ftr-link">About</a><a href="contact.html" class="ftr-link">Contact</a><a href="grievance.html" class="ftr-link">Grievance Redressal</a><a href="fair-practices.html" class="ftr-link">Fair Practices Code</a></div></div><p class="ftr-legal">Aterna Capital is a brand of Blue Jay Finlease Private Limited, an NBFC registered with the Reserve Bank of India &middot; RBI Reg. No. B-14.01415 &middot; Registered office: Flat No. 809, Padma Tower II, Rajendra Place, New Delhi 110008. This website is for informational purposes only and does not constitute a solicitation or offer of financial services. Lending is subject to credit assessment and applicable regulations. &copy; 2026 Blue Jay Finlease Private Limited.</p></footer>
+<script>
+const dot=document.getElementById('cursor-dot'),ring=document.getElementById('cursor-ring');let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+(function a(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(a);})();
+document.querySelectorAll('a,button').forEach(el=>{el.addEventListener('mouseenter',()=>document.body.classList.add('hovering'));el.addEventListener('mouseleave',()=>document.body.classList.remove('hovering'));});
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target);}});},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+<script src="../assets/motion.js" defer></script>
+
+<script>
+/* Mobile nav toggle */
+(function(){
+  var tog=document.getElementById('navToggle');
+  var links=document.querySelector('.nav-links');
+  if(!tog||!links)return;
+  var open=false;
+  function setIcon(){
+    var h1=document.getElementById('hb1'),h2=document.getElementById('hb2'),h3=document.getElementById('hb3');
+    if(!h1)return;
+    h1.style.transform=open?'rotate(45deg) translate(4px,5px)':'';
+    h2.style.opacity=open?'0':'1';
+    h3.style.transform=open?'rotate(-45deg) translate(4px,-5px)':'';
+    h1.style.transformOrigin='center';h3.style.transformOrigin='center';
+    h1.style.transition='transform .25s';h2.style.transition='opacity .15s';h3.style.transition='transform .25s';
+  }
+  tog.addEventListener('click',function(){open=!open;links.classList.toggle('open',open);setIcon();});
+  /* close when nav link tapped */
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(open){open=false;links.classList.remove('open');setIcon();}});});
+  /* close on resize > breakpoint */
+  window.addEventListener('resize',function(){if(window.innerWidth>900&&open){open=false;links.classList.remove('open');setIcon();}});
+})();
+</script>
+</body>
+</html>
