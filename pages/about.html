@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()"/>
+<title>About — Aterna Capital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+
+:root{--forest:#fafcff;--deep:#eef4fb;--green:#d0e4f5;--mid:#2563a8;--sage:#4a8fd4;--mist:#b8d0e8;--gold:#c4902a;--gold-lt:#e8c068;--white:#fafaf8;--text-dark:#0d1b2a;--text-mid:#2d3f52;--text-sub:#4a5f75;--serif:"Cormorant Garamond",Georgia,serif;--sans:"Outfit",system-ui,sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;}body{font-family:var(--sans);background:var(--forest);color:#0d1b2a;overflow-x:hidden;cursor:none;}
+a{color:inherit;text-decoration:none;}button{cursor:none;font-family:var(--sans);border:none;background:none;}
+#cursor-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+#cursor-ring{width:36px;height:36px;border:1px solid rgba(196,144,42,.4);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .4s,height .4s,border-color .3s;}
+body.hovering #cursor-ring{width:56px;height:56px;border-color:rgba(196,144,42,.8);}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 3rem;height:80px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(37,99,168,.12);}
+.nav-logo{display:flex;align-items:center;gap:12px;}
+.nav-logo-name{font-family:var(--serif);font-size:1.5rem;font-weight:500;color:#0d1b2a;}
+.nav-logo-sub{font-size:.6rem;font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:#2563a8;margin-top:4px;}
+.nav-links{display:flex;align-items:center;gap:2.5rem;}
+.nav-link{font-size:.78rem;font-weight:300;letter-spacing:.08em;color:#3a5068;transition:color .3s;}
+.nav-link:hover,.nav-link.active{color:#0d1b2a;}
+.nav-cta-btn{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.65rem 1.5rem;background:var(--gold);color:var(--forest);border-radius:2px;transition:all .3s;}
+.nav-cta-btn:hover{background:var(--gold-lt);transform:translateY(-1px);}
+.page-hero{min-height:60vh;display:flex;flex-direction:column;justify-content:flex-end;padding:9rem 3rem 5rem;position:relative;z-index:2;border-bottom:1px solid rgba(37,99,168,.12);}
+.eyebrow{font-size:.65rem;font-weight:300;letter-spacing:.3em;text-transform:uppercase;color:#2563a8;display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;}
+.eyebrow::before{content:"";width:32px;height:1px;background:#2563a8;}
+.page-title{font-family:var(--serif);font-size:clamp(3rem,6vw,6rem);font-weight:300;line-height:1;color:var(--text-dark);}
+.page-title em{font-style:italic;color:var(--gold-lt);}
+.page-sub{font-size:.95rem;font-weight:300;color:#2d3f52;max-width:520px;line-height:1.8;margin-top:1.5rem;}
+.section{padding:6rem 3rem;position:relative;z-index:2;}
+.section-alt{background:#eef4fb;}
+.section-dark{background:var(--forest);}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1);}
+.reveal.in{opacity:1;transform:none;}
+.reveal-l{opacity:0;transform:translateX(-22px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1);}
+.reveal-l.in{opacity:1;transform:none;}
+.reveal-r{opacity:0;transform:translateX(22px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1);}
+.reveal-r.in{opacity:1;transform:none;}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}.d4{transition-delay:.4s;}
+.s-label{font-size:.65rem;font-weight:300;letter-spacing:.3em;text-transform:uppercase;color:#2563a8;display:flex;align-items:center;gap:1rem;margin-bottom:1.5rem;}
+.s-label::before{content:"";width:32px;height:1px;background:var(--sage);}
+.s-title{font-family:var(--serif);font-size:clamp(2.5rem,4.5vw,4rem);font-weight:300;line-height:1.05;color:var(--text-dark);}
+.s-title em{font-style:italic;color:var(--gold-lt);}
+.s-body{font-size:.9rem;font-weight:300;color:#2d3f52;line-height:1.85;max-width:560px;}
+.btn-gold{display:inline-flex;align-items:center;gap:.75rem;font-size:.78rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2.5rem;background:var(--gold);color:var(--forest);border-radius:2px;transition:all .3s;}
+.btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px);}
+.btn-outline-gold{display:inline-flex;align-items:center;gap:.75rem;font-size:.78rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2.5rem;background:transparent;color:var(--gold-lt);border:1px solid rgba(196,144,42,.4);border-radius:2px;transition:all .3s;}
+.btn-outline-gold:hover{background:var(--gold);color:var(--forest);}
+.cta-band{padding:8rem 3rem;text-align:center;background:#eef4fb;border-top:1px solid rgba(37,99,168,.12);position:relative;z-index:2;}
+footer{background:rgba(234,241,249,.95);padding:3.5rem 3rem 2rem;border-top:1px solid rgba(37,99,168,.12);position:relative;z-index:2;}
+.ftr-link{font-size:.8rem;font-weight:300;color:#2d3f52;transition:color .2s;}
+.ftr-link:hover{color:#0d1b2a;}
+.ftr-legal{font-size:.67rem;font-weight:300;color:#4a5f75;line-height:1.7;}
+@media(max-width:900px){.nav-links{display:none;}.page-hero{padding:7rem 1.5rem 3rem;}.section{padding:4rem 1.5rem;}.cta-band{padding:5rem 1.5rem;}footer{padding:2.5rem 1.5rem;}}
+
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.pull-quote{font-family:var(--serif);font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:300;font-style:italic;color:#0d1b2a;line-height:1.35;border-left:2px solid #2563a8;padding-left:2rem;margin:2.5rem 0;}
+.body-text{font-size:.9rem;font-weight:300;color:#2d3f52;line-height:1.9;margin-bottom:1.25rem;}
+.values-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.5px;margin-top:4rem;}
+.value-cell{padding:3rem;background:#eef4fb;border:1px solid rgba(37,99,168,.08);transition:background .3s;}
+.value-cell:hover{background:#daeaf8;}
+.value-num{font-family:var(--serif);font-size:3rem;font-weight:300;color:rgba(37,99,168,.18);line-height:1;margin-bottom:.75rem;}
+.value-title{font-family:var(--serif);font-size:1.4rem;font-weight:400;color:#0d1b2a;margin-bottom:.75rem;}
+.value-body{font-size:.85rem;font-weight:300;color:#2d3f52;line-height:1.75;}
+.nbfc-box{background:#fdf8ee;border:1px solid rgba(196,144,42,.25);border-radius:4px;padding:2rem;margin-top:2rem;}
+.nbfc-box-title{font-size:.65rem;font-weight:300;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:.75rem;}
+.nbfc-box p{font-size:.83rem;font-weight:300;color:#2d3f52;line-height:1.75;}
+@media(max-width:900px){.two-col{grid-template-columns:1fr;gap:2.5rem;}.values-grid,.team-grid{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.values-grid,.team-grid{grid-template-columns:1fr;}}
+
+/* Mobile nav fix */
+#navToggle{display:none;background:none;border:none;cursor:none;padding:6px;}
+@media(max-width:900px){
+  #navToggle{display:flex;align-items:center;justify-content:center;}
+  .nav-links{display:none;}
+  .nav-links.open{display:flex;flex-direction:column;align-items:flex-start;position:fixed;top:80px;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);padding:1.75rem 1.5rem;gap:1.25rem;border-bottom:1px solid rgba(37,99,168,.12);box-shadow:0 8px 24px rgba(13,27,42,.06);}
+  .nav-links.open .nav-cta-btn{margin-top:.5rem;}
+}
+</style>
+</head>
+<body>
+<div id="cursor-dot"></div><div id="cursor-ring"></div>
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <svg width="34" height="34" viewBox="0 0 60 60" fill="none"><rect x="8" y="8" width="44" height="44" rx="4" transform="rotate(45 30 30)" fill="#1b3e6f" stroke="#2563a8" stroke-width="1.2"/><polygon points="30,10 52,30 30,38" fill="#0a1628" opacity="0.55"/><rect x="18" y="22" width="5" height="20" rx="1" fill="#b8cfe8"/><rect x="27.5" y="18" width="5" height="24" rx="1" fill="#4a8fd4"/><rect x="37" y="22" width="5" height="20" rx="1" fill="#b8cfe8"/><rect x="14" y="19" width="32" height="2.5" rx="1" fill="#b8cfe8"/><rect x="14" y="42" width="32" height="2.5" rx="1" fill="#b8cfe8"/><rect x="27.5" y="15" width="5" height="4" rx="1" fill="#c4902a"/></svg>
+    <div><div class="nav-logo-name" style="color:#0d1b2a;">Aterna</div><div class="nav-logo-sub">Capital</div></div>
+  </a>
+  <div class="nav-links" id="navLinks">
+    <a href="products.html" class="nav-link ">Products</a>
+    <a href="sme.html" class="nav-link ">For SMEs</a>
+    <a href="corporates.html" class="nav-link ">Corporates</a>
+    <a href="about.html" class="nav-link active">About</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="apply.html" class="nav-cta-btn">Apply</a>
+  </div>
+  <button id="navToggle" style="display:none;background:none;border:none;cursor:none;padding:8px;" aria-label="Menu">
+    <svg width="22" height="14" viewBox="0 0 22 14" fill="none" id="hamburger"><line x1="0" y1="1" x2="22" y2="1" stroke="#0d1b2a" stroke-width="1.5"/><line x1="0" y1="7" x2="22" y2="7" stroke="#0d1b2a" stroke-width="1.5" id="hb2"/><line x1="0" y1="13" x2="22" y2="13" stroke="#0d1b2a" stroke-width="1.5"/></svg>
+  </button>
+</nav>
+<section class="page-hero">
+  <div class="eyebrow reveal">Our story</div>
+  <h1 class="page-title reveal d1">Built to last.<br><em>Built to listen.</em></h1>
+  <p class="page-sub reveal d2">Aterna comes from Aeternum — Latin for eternal. It is not just a name. It is the commitment we make to every borrower we work with.</p>
+</section>
+<section class="section">
+  <div class="two-col">
+    <div>
+      <div class="s-label reveal">Why we exist</div>
+      <h2 class="s-title reveal d1">Credit that sees<br><em>the whole picture</em></h2>
+      <p class="body-text reveal d2">Too much credit in India is transactional. A business applies, a score is generated, a product is dispensed. The nuance of how that business actually operates — its cycles, its relationships, its ambitions — rarely enters the picture.</p>
+      <blockquote class="pull-quote reveal d2">"The best financing structures come from spending time with a business — not processing it through a system."</blockquote>
+      <p class="body-text reveal d3">Aterna Capital was founded to change that. We are an NBFC built on the belief that credit should be deliberate, lasting, and deeply customised.</p>
+    </div>
+    <div>
+      <div class="s-label reveal">Our approach</div>
+      <h2 class="s-title reveal d1">Relationship<br><em>before transaction</em></h2>
+      <p class="body-text reveal d2">Before we structure a deal, we understand a business. Before we price a loan, we study a sector. Before we disburse, we know your name — not just your CIN.</p>
+      <p class="body-text reveal d3">This takes more time. We believe it is worth it — for us, and far more so for you. Our portfolio reflects this. We hold fewer, deeper relationships.</p>
+      <div class="nbfc-box reveal d3">
+        <div class="nbfc-box-title">Regulatory standing</div>
+        <p>Aterna Capital Private Limited is registered with the Reserve Bank of India as a Non-Banking Financial Company. All lending activities are conducted in full compliance with applicable RBI regulations.</p>
+        <p style="margin-top:.75rem;font-size:.78rem;color:rgba(37,99,168,.25);">RBI Reg. No. B-14.01415 &middot; Registered office: Flat No. 809, Padma Tower II, Rajendra Place, New Delhi 110008</p>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="section section-alt">
+  <div class="s-label reveal">What we stand for</div>
+  <h2 class="s-title reveal d1">Four commitments,<br><em>every deal</em></h2>
+  <div class="values-grid">
+    <div class="value-cell reveal d1"><div class="value-num">01</div><div class="value-title">Permanence</div><p class="value-body">We build relationships meant to last beyond the first loan. Our measure of success is a borrower who returns — not one who just repays.</p></div>
+    <div class="value-cell reveal d2"><div class="value-num">02</div><div class="value-title">Deliberate underwriting</div><p class="value-body">We read beyond the numbers. Sector knowledge, business model understanding, and management assessment are as important as the P&L.</p></div>
+    <div class="value-cell reveal d3"><div class="value-num">03</div><div class="value-title">Custom fit</div><p class="value-body">We do not force your requirement into our product — we build the product around your requirement. Every credit structure is designed for its borrower.</p></div>
+    <div class="value-cell reveal d4"><div class="value-num">04</div><div class="value-title">Accessibility</div><p class="value-body">Premium, thoughtful credit should not be the exclusive preserve of large corporations. SMEs with ambition deserve the same quality of thinking.</p></div>
+  </div>
+</section>
+
+<div class="cta-band"><div class="reveal"><p style="font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;color:#2563a8;margin-bottom:1.5rem;">Work with us</p><h2 class="s-title" style="font-size:clamp(2.5rem,5vw,4.5rem);">Credit built on<br><em>understanding.</em></h2><p class="s-body" style="margin:1.5rem auto 3rem;text-align:center;">If you are looking for a lender who invests time before investing capital — let us talk.</p><a href="apply.html" class="btn-gold">Apply now →</a></div></div>
+<footer>
+  <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:2rem;flex-wrap:wrap;gap:1.5rem;border-bottom:1px solid rgba(37,99,168,.12);margin-bottom:2rem;">
+    <a href="../index.html" style="display:flex;align-items:center;gap:10px;">
+      <svg width="28" height="28" viewBox="0 0 60 60" fill="none"><rect x="8" y="8" width="44" height="44" rx="4" transform="rotate(45 30 30)" fill="#1b3e6f" stroke="#2563a8" stroke-width="1.2"/><polygon points="30,10 52,30 30,38" fill="#0a1628" opacity="0.55"/><rect x="18" y="22" width="5" height="20" rx="1" fill="#b8cfe8"/><rect x="27.5" y="18" width="5" height="24" rx="1" fill="#4a8fd4"/><rect x="37" y="22" width="5" height="20" rx="1" fill="#b8cfe8"/><rect x="14" y="19" width="32" height="2.5" rx="1" fill="#b8cfe8"/><rect x="14" y="42" width="32" height="2.5" rx="1" fill="#b8cfe8"/><rect x="27.5" y="15" width="5" height="4" rx="1" fill="#c4902a"/></svg>
+      <div><div style="font-family:var(--serif);font-size:1.1rem;font-weight:400;color:#0d1b2a;">Aterna</div><div style="font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:#2563a8;margin-top:2px;">Capital</div></div>
+    </a>
+    <div style="display:flex;gap:2rem;flex-wrap:wrap;">
+      <a href="products.html" class="ftr-link">Products</a>
+      <a href="sme.html" class="ftr-link">For SMEs</a>
+      <a href="corporates.html" class="ftr-link">Corporates</a>
+      <a href="about.html" class="ftr-link">About</a>
+      <a href="contact.html" class="ftr-link">Contact</a>
+      <a href="grievance.html" class="ftr-link">Grievance Redressal</a>
+      <a href="fair-practices.html" class="ftr-link">Fair Practices Code</a>
+    </div>
+  </div>
+  <p class="ftr-legal">Aterna Capital is a brand of Blue Jay Finlease Private Limited, an NBFC registered with the Reserve Bank of India &middot; RBI Reg. No. B-14.01415 &middot; Registered office: Flat No. 809, Padma Tower II, Rajendra Place, New Delhi 110008. This website is for informational purposes only and does not constitute a solicitation or offer of financial services. Lending is subject to credit assessment and applicable regulations. &copy; 2026 Blue Jay Finlease Private Limited.</p>
+</footer>
+
+<script>
+const dot=document.getElementById("cursor-dot"),ring=document.getElementById("cursor-ring");
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+"px";dot.style.top=my+"px";});
+(function a(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+"px";ring.style.top=ry+"px";requestAnimationFrame(a);})();
+document.querySelectorAll("a,button").forEach(el=>{
+  el.addEventListener("mouseenter",()=>document.body.classList.add("hovering"));
+  el.addEventListener("mouseleave",()=>document.body.classList.remove("hovering"));
+});
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target);}});},{threshold:0,rootMargin:"0px 0px -20px 0px"});
+document.querySelectorAll(".reveal,.reveal-l,.reveal-r").forEach(el=>io.observe(el));
+window.addEventListener("load",()=>{setTimeout(()=>{document.querySelectorAll(".reveal,.reveal-l,.reveal-r").forEach(el=>{const r=el.getBoundingClientRect();if(r.top<window.innerHeight&&r.bottom>0)el.classList.add("in");});},50);});
+const nav=document.getElementById("navLinks"),tog=document.getElementById("navToggle");
+if(tog){const check=()=>{tog.style.display=window.innerWidth<=900?"block":"none";};check();window.addEventListener("resize",check);tog.addEventListener("click",()=>nav.classList.toggle("open"));}
+</script>
+
+
+<script>
+/* Mobile nav toggle */
+(function(){
+  var tog=document.getElementById('navToggle');
+  var links=document.querySelector('.nav-links');
+  if(!tog||!links)return;
+  var open=false;
+  function setIcon(){
+    var h1=document.getElementById('hb1'),h2=document.getElementById('hb2'),h3=document.getElementById('hb3');
+    if(!h1)return;
+    h1.style.transform=open?'rotate(45deg) translate(4px,5px)':'';
+    h2.style.opacity=open?'0':'1';
+    h3.style.transform=open?'rotate(-45deg) translate(4px,-5px)':'';
+    h1.style.transformOrigin='center';h3.style.transformOrigin='center';
+    h1.style.transition='transform .25s';h2.style.transition='opacity .15s';h3.style.transition='transform .25s';
+  }
+  tog.addEventListener('click',function(){open=!open;links.classList.toggle('open',open);setIcon();});
+  /* close when nav link tapped */
+  links.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){if(open){open=false;links.classList.remove('open');setIcon();}});});
+  /* close on resize > breakpoint */
+  window.addEventListener('resize',function(){if(window.innerWidth>900&&open){open=false;links.classList.remove('open');setIcon();}});
+})();
+</script>
+</body>
+</html>
