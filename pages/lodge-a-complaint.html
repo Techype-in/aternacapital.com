@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://cdnjs.cloudflare.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"/>
+<meta name="referrer" content="strict-origin-when-cross-origin"/>
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=(), interest-cohort=()"/>
+<title>Lodge a Complaint &mdash; Aterna Capital</title>
+<meta name="description" content="How Aterna Capital (Blue Jay Finlease Private Limited) handles customer complaints — a step-by-step flow from intake and acknowledgement through internal escalation to the RBI Ombudsman."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Outfit:wght@200;300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{--forest:#fafcff;--deep:#eef4fb;--green:#d0e4f5;--mid:#2563a8;--sage:#4a8fd4;--mist:#b8d0e8;--gold:#c4902a;--gold-lt:#e8c068;--white:#fafaf8;--text-dark:#0d1b2a;--text-mid:#2d3f52;--text-sub:#4a5f75;--serif:"Cormorant Garamond",Georgia,serif;--sans:"Outfit",system-ui,sans-serif;}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{font-size:16px;}body{font-family:var(--sans);background:var(--forest);color:#0d1b2a;overflow-x:hidden;cursor:none;}
+a{color:inherit;text-decoration:none;}button{cursor:none;font-family:var(--sans);border:none;background:none;}
+#cursor-dot{width:6px;height:6px;background:var(--gold);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);}
+#cursor-ring{width:36px;height:36px;border:1px solid rgba(196,144,42,.4);border-radius:50%;position:fixed;top:0;left:0;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .4s,height .4s,border-color .3s;}
+body.hovering #cursor-ring{width:56px;height:56px;border-color:rgba(196,144,42,.8);}
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.03;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;padding:0 3rem;height:80px;display:flex;align-items:center;justify-content:space-between;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);border-bottom:1px solid rgba(37,99,168,.12);}
+.nav-logo{display:flex;align-items:center;gap:12px;}
+.nav-logo-name{font-family:var(--serif);font-size:1.5rem;font-weight:500;color:#0d1b2a;}
+.nav-logo-sub{font-size:.6rem;font-weight:300;letter-spacing:.28em;text-transform:uppercase;color:#2563a8;margin-top:4px;}
+.nav-links{display:flex;align-items:center;gap:2.5rem;}
+.nav-link{font-size:.78rem;font-weight:300;letter-spacing:.08em;color:#3a5068;transition:color .3s;}
+.nav-link:hover,.nav-link.active{color:#0d1b2a;}
+.nav-cta-btn{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;padding:.65rem 1.5rem;background:var(--gold);color:var(--forest);border-radius:2px;transition:all .3s;}
+.nav-cta-btn:hover{background:var(--gold-lt);transform:translateY(-1px);}
+.page-hero{padding:8rem 3rem 4rem;position:relative;z-index:2;background:#ffffff;border-bottom:1px solid rgba(37,99,168,.12);}
+.eyebrow{font-size:.65rem;font-weight:300;letter-spacing:.3em;text-transform:uppercase;color:#2563a8;display:flex;align-items:center;gap:1rem;margin-bottom:1.25rem;}
+.eyebrow::before{content:"";width:32px;height:1px;background:#2563a8;}
+.page-title{font-family:var(--serif);font-size:clamp(2.6rem,5.5vw,4.8rem);font-weight:300;line-height:1.02;color:var(--text-dark);}
+.page-title em{font-style:italic;color:var(--gold-lt);}
+.page-sub{font-size:.95rem;font-weight:300;color:#2d3f52;max-width:660px;line-height:1.85;margin-top:1.5rem;}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1);}
+.reveal.in{opacity:1;transform:none;}
+.d1{transition-delay:.1s;}.d2{transition-delay:.2s;}.d3{transition-delay:.3s;}
+
+.flow-band{padding:5rem 3rem 5rem;position:relative;z-index:2;background:#fafcff;}
+.flow-title{font-family:var(--serif);font-size:1.9rem;font-weight:400;color:var(--text-dark);margin-bottom:.9rem;text-align:center;}
+.flow-intro{font-size:.92rem;font-weight:300;color:#2d3f52;text-align:center;max-width:640px;margin:0 auto 3rem;line-height:1.85;}
+.flow-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;}
+.flow-svg{display:block;margin:0 auto;max-width:1000px;width:100%;height:auto;}
+.flow-svg .fl-line{stroke:rgba(37,99,168,.6);stroke-width:1.6;fill:none;}
+.flow-svg .fl-intake{fill:#eef4fb;stroke:rgba(37,99,168,.4);stroke-width:1.4;}
+.flow-svg .fl-box{fill:#ffffff;stroke:rgba(37,99,168,.45);stroke-width:1.4;}
+.flow-svg .fl-level{fill:#faf3e4;stroke:rgba(196,144,42,.6);stroke-width:1.6;}
+.flow-svg .fl-decision{fill:#ffffff;stroke:rgba(37,99,168,.55);stroke-width:1.5;}
+.flow-svg .fl-closed{fill:#e9f4ec;stroke:rgba(74,140,96,.6);stroke-width:1.4;}
+.flow-svg .fl-final{fill:#fbeef0;stroke:rgba(188,110,122,.6);stroke-width:1.6;}
+.flow-svg text{font-family:var(--sans);font-size:13px;font-weight:300;fill:#2d3f52;text-anchor:middle;}
+.flow-svg .t-head{font-size:16px;font-weight:500;fill:#0d1b2a;}
+.flow-svg .t-mail{fill:#2563a8;font-size:13px;font-weight:400;}
+.flow-svg .t-b{text-anchor:start;font-size:12.5px;}
+.flow-svg .t-dec{font-size:14px;font-weight:500;fill:#0d1b2a;}
+.flow-svg .t-yes{fill:#3f7a54;font-weight:600;font-size:13px;letter-spacing:.12em;}
+.flow-svg .t-no{fill:#b0545f;font-weight:600;font-size:13px;letter-spacing:.12em;}
+.flow-legend{display:flex;flex-wrap:wrap;justify-content:center;gap:1rem 2rem;margin:2.75rem auto 0;max-width:840px;font-size:.8rem;font-weight:300;color:#2d3f52;}
+.flow-legend span{display:inline-flex;align-items:center;gap:.55rem;}
+.flow-legend .lg{width:14px;height:14px;border-radius:3px;border:1.5px solid;display:inline-block;}
+
+.cta-band{padding:5rem 3rem 6rem;text-align:center;background:#eef4fb;border-top:1px solid rgba(37,99,168,.12);position:relative;z-index:2;}
+.cta-title{font-family:var(--serif);font-size:clamp(2rem,4vw,3rem);font-weight:300;line-height:1.1;color:var(--text-dark);}
+.cta-title em{font-style:italic;color:var(--gold-lt);}
+.cta-sub{font-size:.9rem;font-weight:300;color:#2d3f52;max-width:500px;margin:1.25rem auto 2rem;line-height:1.85;}
+.btn-gold{display:inline-flex;align-items:center;gap:.75rem;font-size:.78rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;padding:1rem 2.5rem;background:var(--gold);color:var(--forest);border-radius:2px;transition:all .3s;}
+.btn-gold:hover{background:var(--gold-lt);transform:translateY(-2px);}
+
+footer{background:rgba(234,241,249,.95);padding:3.5rem 3rem 2rem;border-top:1px solid rgba(37,99,168,.12);position:relative;z-index:2;}
+.ftr-link{font-size:.8rem;font-weight:300;color:#2d3f52;transition:color .2s;}
+.ftr-link:hover{color:#0d1b2a;}
+.ftr-legal{font-size:.67rem;font-weight:300;color:#4a5f75;line-height:1.7;}
+
+@media(max-width:900px){.nav-links{display:none;}.page-hero{padding:6rem 1.5rem 3rem;}.flow-band,.cta-band{padding-left:1.5rem;padding-right:1.5rem;}footer{padding:2.5rem 1.5rem;}.flow-svg{min-width:660px;}}
+</style>
+</head>
+<body>
+<div id="cursor-dot"></div><div id="cursor-ring"></div>
+<nav>
+  <a href="../index.html" class="nav-logo">
+    <svg width="34" height="34" viewBox="0 0 60 60" fill="none"><rect x="8" y="8" width="44" height="44" rx="4" transform="rotate(45 30 30)" fill="#1b3e6f" stroke="#2563a8" stroke-width="1.2"/><polygon points="30,10 52,30 30,38" fill="#0a1628" opacity="0.55"/><rect x="18" y="22" width="5" height="20" rx="1" fill="#b8cfe8"/><rect x="27.5" y="18" width="5" height="24" rx="1" fill="#4a8fd4"/><rect x="37" y="22" width="5" height="20" rx="1" fill="#b8cfe8"/><rect x="14" y="19" width="32" height="2.5" rx="1" fill="#b8cfe8"/><rect x="14" y="42" width="32" height="2.5" rx="1" fill="#b8cfe8"/><rect x="27.5" y="15" width="5" height="4" rx="1" fill="#c4902a"/></svg>
+    <div><div class="nav-logo-name">Aterna</div><div class="nav-logo-sub">Capital</div></div>
+  </a>
+  <div class="nav-links">
+    <a href="products.html" class="nav-link">Products</a>
+    <a href="sme.html" class="nav-link">For SMEs</a>
+    <a href="corporates.html" class="nav-link">Corporates</a>
+    <a href="about.html" class="nav-link">About</a>
+    <a href="contact.html" class="nav-link">Contact</a>
+    <a href="apply.html" class="nav-cta-btn">Apply</a>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="eyebrow reveal">Lodge a Complaint</div>
+  <h1 class="page-title reveal d1">How your complaint <em>is handled.</em></h1>
+  <p class="page-sub reveal d2">However a complaint reaches Aterna Capital &mdash; through the RBI portal, by email, or forwarded by a credit information company &mdash; it follows one clear, time-bound path. The chart below shows exactly how every complaint is logged, escalated and resolved.</p>
+</section>
+
+<section class="flow-band">
+  <h2 class="flow-title reveal">Customer complaint handling flow</h2>
+  <p class="flow-intro reveal d1">Every complaint is logged and acknowledged, then worked through up to three internal levels &mdash; each targeting resolution within ten days &mdash; with the RBI Ombudsman as the final external recourse.</p>
+  <div class="flow-scroll reveal d2">
+  <svg class="flow-svg" viewBox="0 0 1000 1260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Customer complaint handling flow chart">
+    <defs>
+      <marker id="fa" markerWidth="12" markerHeight="12" refX="9" refY="4" orient="auto" markerUnits="userSpaceOnUse">
+        <path d="M0,0 L9,4 L0,8 Z" fill="rgba(37,99,168,.7)"/>
+      </marker>
+    </defs>
+
+    <!-- Intake row -->
+    <rect class="fl-intake" x="20" y="20" width="280" height="120" rx="8"/>
+    <text class="t-head" x="160" y="60">RBI CMS Portal</text>
+    <text x="160" y="88">Complaint received via</text>
+    <text x="160" y="108">RBI Complaint</text>
+    <text x="160" y="128">Management System</text>
+
+    <rect class="fl-intake" x="360" y="20" width="280" height="120" rx="8"/>
+    <text class="t-head" x="500" y="56">Customer Email</text>
+    <text class="t-mail" x="500" y="84">nodal.officer@ziploan.com /</text>
+    <text class="t-mail" x="500" y="106">customer.care@ziploan.com</text>
+    <text x="500" y="128">(Branch / Call / Website)</text>
+
+    <rect class="fl-intake" x="700" y="20" width="280" height="120" rx="8"/>
+    <text class="t-head" x="840" y="56">CIC Forwarded Complaint</text>
+    <text x="840" y="84">Complaint raised with CIC</text>
+    <text x="840" y="106">(non-updation of correct</text>
+    <text x="840" y="128">CIBIL) forwarded to us</text>
+
+    <!-- Converge -->
+    <polyline class="fl-line" points="160,140 160,170 500,170"/>
+    <polyline class="fl-line" points="840,140 840,170 500,170"/>
+    <line class="fl-line" x1="500" y1="140" x2="500" y2="200" marker-end="url(#fa)"/>
+
+    <!-- Logged -->
+    <rect class="fl-box" x="310" y="200" width="380" height="62" rx="8"/>
+    <text class="t-head" x="500" y="228">Complaint Logged &amp;</text>
+    <text class="t-head" x="500" y="250">Acknowledgement Sent to Customer</text>
+    <line class="fl-line" x1="500" y1="262" x2="500" y2="292" marker-end="url(#fa)"/>
+
+    <!-- Level 1 -->
+    <rect class="fl-level" x="260" y="292" width="480" height="100" rx="8"/>
+    <text class="t-head" x="500" y="322">Level 1 &mdash; Customer Care Team</text>
+    <text class="t-mail" x="500" y="346">care@aternacapital.com</text>
+    <text class="t-b" x="282" y="368">&bull; Checks status</text>
+    <text class="t-b" x="282" y="386">&bull; Aims to resolve at this level within ten days</text>
+    <line class="fl-line" x1="500" y1="392" x2="500" y2="417" marker-end="url(#fa)"/>
+
+    <!-- Decision 1 -->
+    <polygon class="fl-decision" points="500,417 605,475 500,533 395,475"/>
+    <text class="t-dec" x="500" y="470">Customer</text>
+    <text class="t-dec" x="500" y="488">Satisfied?</text>
+    <rect class="fl-closed" x="700" y="445" width="270" height="60" rx="8"/>
+    <text class="t-head" x="835" y="471">Complaint Closed</text>
+    <text x="835" y="491">Closure confirmation sent</text>
+    <line class="fl-line" x1="605" y1="475" x2="700" y2="475" marker-end="url(#fa)"/>
+    <text class="t-yes" x="652" y="467">YES</text>
+    <line class="fl-line" x1="500" y1="533" x2="500" y2="565" marker-end="url(#fa)"/>
+    <text class="t-no" x="516" y="553">NO</text>
+
+    <!-- Level 2 -->
+    <rect class="fl-level" x="240" y="565" width="520" height="125" rx="8"/>
+    <text class="t-head" x="500" y="595" style="font-size:15px">Level 2 &mdash; Grievance Redressal Officer / Nodal Officer</text>
+    <text class="t-mail" x="500" y="619">nodal.officer@ziploan.com</text>
+    <text class="t-b" x="262" y="645">&bull; Reaches out to the customer to understand the concern;</text>
+    <text class="t-b" x="274" y="664">gives directions to Finance &amp; Operations on pending items</text>
+    <text class="t-b" x="262" y="684">&bull; Aims to resolve at his level within ten days</text>
+    <line class="fl-line" x1="500" y1="690" x2="500" y2="712" marker-end="url(#fa)"/>
+
+    <!-- Decision 2 -->
+    <polygon class="fl-decision" points="500,712 605,770 500,828 395,770"/>
+    <text class="t-dec" x="500" y="765">Customer</text>
+    <text class="t-dec" x="500" y="783">Satisfied?</text>
+    <rect class="fl-closed" x="700" y="740" width="270" height="60" rx="8"/>
+    <text class="t-head" x="835" y="766">Complaint Closed</text>
+    <text x="835" y="786">Closure confirmation sent</text>
+    <line class="fl-line" x1="605" y1="770" x2="700" y2="770" marker-end="url(#fa)"/>
+    <text class="t-yes" x="652" y="762">YES</text>
+    <line class="fl-line" x1="500" y1="828" x2="500" y2="860" marker-end="url(#fa)"/>
+    <text class="t-no" x="516" y="848">NO</text>
+
+    <!-- Level 3 -->
+    <rect class="fl-level" x="260" y="860" width="480" height="100" rx="8"/>
+    <text class="t-head" x="500" y="890">Level 3 &mdash; Principal Nodal Officer</text>
+    <text class="t-mail" x="500" y="914">kshitij@ziploan.com</text>
+    <text class="t-b" x="282" y="936">&bull; Final internal escalation for resolution</text>
+    <text class="t-b" x="282" y="954">&bull; Aims to resolve at his level within ten days</text>
+    <line class="fl-line" x1="500" y1="960" x2="500" y2="987" marker-end="url(#fa)"/>
+
+    <!-- Decision 3 -->
+    <polygon class="fl-decision" points="500,987 605,1045 500,1103 395,1045"/>
+    <text class="t-dec" x="500" y="1040">Customer</text>
+    <text class="t-dec" x="500" y="1058">Satisfied?</text>
+    <rect class="fl-closed" x="700" y="1015" width="270" height="60" rx="8"/>
+    <text class="t-head" x="835" y="1041">Complaint Closed</text>
+    <text x="835" y="1061">Closure confirmation sent</text>
+    <line class="fl-line" x1="605" y1="1045" x2="700" y2="1045" marker-end="url(#fa)"/>
+    <text class="t-yes" x="652" y="1037">YES</text>
+    <line class="fl-line" x1="500" y1="1103" x2="500" y2="1135" marker-end="url(#fa)"/>
+    <text class="t-no" x="516" y="1123">NO</text>
+
+    <!-- Ombudsman -->
+    <rect class="fl-final" x="220" y="1135" width="560" height="110" rx="8"/>
+    <text class="t-head" x="500" y="1168">Escalation to the RBI Ombudsman</text>
+    <text class="t-b" x="242" y="1196">&bull; The Company has not responded within 30 days of receipt</text>
+    <text class="t-b" x="254" y="1215">of the complaint, or</text>
+    <text class="t-b" x="242" y="1237">&bull; The customer is not satisfied with the Company's final response</text>
+  </svg>
+  </div>
+  <div class="flow-legend reveal d3">
+    <span><i class="lg" style="background:#eef4fb;border-color:rgba(37,99,168,.4)"></i>Intake channel</span>
+    <span><i class="lg" style="background:#faf3e4;border-color:rgba(196,144,42,.6)"></i>Internal review level</span>
+    <span><i class="lg" style="background:#e9f4ec;border-color:rgba(74,140,96,.6)"></i>Complaint closed</span>
+    <span><i class="lg" style="background:#fbeef0;border-color:rgba(188,110,122,.6)"></i>External escalation</span>
+  </div>
+</section>
+
+<section class="cta-band">
+  <div class="reveal">
+    <h2 class="cta-title">Prefer the <em>step-by-step</em> view?</h2>
+    <p class="cta-sub">See the contacts, email addresses and response timelines for each escalation level on our Grievance Redressal page.</p>
+    <a href="grievance.html" class="btn-gold">View Grievance Redressal &rarr;</a>
+  </div>
+</section>
+
+<footer>
+  <div style="display:flex;justify-content:space-between;align-items:center;padding-bottom:2rem;flex-wrap:wrap;gap:1.5rem;border-bottom:1px solid rgba(37,99,168,.12);margin-bottom:2rem;">
+    <a href="../index.html" style="display:flex;align-items:center;gap:10px;">
+      <svg width="28" height="28" viewBox="0 0 60 60" fill="none"><rect x="8" y="8" width="44" height="44" rx="4" transform="rotate(45 30 30)" fill="#1b3e6f" stroke="#2563a8" stroke-width="1.2"/><polygon points="30,10 52,30 30,38" fill="#0a1628" opacity="0.55"/><rect x="18" y="22" width="5" height="20" rx="1" fill="#b8cfe8"/><rect x="27.5" y="18" width="5" height="24" rx="1" fill="#4a8fd4"/><rect x="37" y="22" width="5" height="20" rx="1" fill="#b8cfe8"/><rect x="14" y="19" width="32" height="2.5" rx="1" fill="#b8cfe8"/><rect x="14" y="42" width="32" height="2.5" rx="1" fill="#b8cfe8"/><rect x="27.5" y="15" width="5" height="4" rx="1" fill="#c4902a"/></svg>
+      <div><div style="font-family:var(--serif);font-size:1.1rem;font-weight:400;color:#0d1b2a;">Aterna</div><div style="font-size:.58rem;letter-spacing:.25em;text-transform:uppercase;color:#2563a8;margin-top:2px;">Capital</div></div>
+    </a>
+    <div style="display:flex;gap:2rem;flex-wrap:wrap;">
+      <a href="products.html" class="ftr-link">Products</a>
+      <a href="sme.html" class="ftr-link">For SMEs</a>
+      <a href="corporates.html" class="ftr-link">Corporates</a>
+      <a href="about.html" class="ftr-link">About</a>
+      <a href="contact.html" class="ftr-link">Contact</a>
+      <a href="grievance.html" class="ftr-link">Grievance Redressal</a><a href="lodge-a-complaint.html" class="ftr-link">Lodge a Complaint</a>
+      <a href="fair-practices.html" class="ftr-link">Fair Practices Code</a>
+    </div>
+  </div>
+  <p class="ftr-legal">Aterna Capital is a brand of Blue Jay Finlease Private Limited, an NBFC registered with the Reserve Bank of India &middot; RBI Reg. No. B-14.01415 &middot; Registered office: Flat No. 809, Padma Tower II, Rajendra Place, New Delhi 110008. This website is for informational purposes only and does not constitute a solicitation or offer of financial services. Lending is subject to credit assessment and applicable regulations. &copy; 2026 Blue Jay Finlease Private Limited.</p>
+</footer>
+
+<script>
+const dot=document.getElementById("cursor-dot"),ring=document.getElementById("cursor-ring");
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener("mousemove",e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+"px";dot.style.top=my+"px";});
+(function a(){rx+=(mx-rx)*.12;ry+=(my-ry)*.12;ring.style.left=rx+"px";ring.style.top=ry+"px";requestAnimationFrame(a);})();
+document.querySelectorAll("a,button").forEach(el=>{
+  el.addEventListener("mouseenter",()=>document.body.classList.add("hovering"));
+  el.addEventListener("mouseleave",()=>document.body.classList.remove("hovering"));
+});
+const io=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add("in");io.unobserve(x.target);}});},{threshold:0,rootMargin:"0px 0px -20px 0px"});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+window.addEventListener("load",()=>{setTimeout(()=>{document.querySelectorAll(".reveal").forEach(el=>{const r=el.getBoundingClientRect();if(r.top<window.innerHeight && r.bottom>0) el.classList.add("in");});},50);});
+</script>
+</body>
+</html>
